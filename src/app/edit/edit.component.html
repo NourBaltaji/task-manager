@@ -1,0 +1,22 @@
+<!-- <div class="container2" *ngIf="!showList && !itemToEdit"> -->
+<div class="container2">
+  <div class="add-task-box">
+    <form (submit)="saveTask()">
+      <h2 class="title is-5">Edit task</h2>
+      <div class="field is-grouped">
+        <p class="control is-expanded">
+          <input name="inputTask" class="input" type="text" placeholder="Add New Task" [(ngModel)]="TasksService.inputTask" />
+        </p>
+        <p class="control">
+          <input name="dateTask" type="date" id="birthday" name="dueDate" [(ngModel)]="TasksService.dateTask" />
+        </p>
+      </div>
+      <p class="control">
+        <button class="button2 alt-gradient-button">
+          <i class="material-icons">add</i>
+          save
+        </button>
+      </p>
+    </form>
+  </div>
+</div>

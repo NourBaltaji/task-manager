@@ -1,0 +1,138 @@
+// Task Item
+.task-item {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 25px 15px;
+  font-size: 16px;
+  border-bottom: 1px solid #f2f3f5;
+  user-select: none;
+  transition: padding 0.3s;
+
+  &.completed {
+    color: #aaa;
+  }
+  &:hover {
+    padding: 35px 15px;
+  }
+}
+.task-item .task-info {
+  display: flex;
+}
+.task-item .check-box {
+  display: flex;
+  flex-shrink: 0;
+  border: 2px solid #eee;
+  border-radius: 50%;
+  margin-right: 20px;
+  height: 18px;
+  width: 18px;
+  transition: background-color 0.2s;
+}
+.task-item:hover .check-box {
+  background: #eee;
+}
+
+.task-item.completed .check-box {
+  background-color: rgb(11, 223, 170);
+  border-color: rgb(11, 223, 170);
+
+  // i.material-icons {
+  //   opacity: 1;
+  // }
+}
+.task-item.urgent .check-box {
+  border-color: rgb(238, 57, 57);
+}
+.task-item.urgent :hover .check-box {
+  background: rgb(238, 57, 57);
+}
+.task-item.inprogress .check-box {
+  border-color: rgb(64, 134, 85);
+}
+.task-item.inprogress :hover .check-box {
+  background: rgb(64, 134, 85);
+}
+.task-item.upcoming .check-box {
+  border-color: rgb(241, 124, 69);
+}
+.task-item.upcoming :hover .check-box {
+  background: rgb(241, 124, 69);
+}
+
+// button
+.task-item .state button {
+  border-radius: 30px;
+  width: 100px;
+  background-color: white;
+  padding: 10px 15px;
+  font-weight: 900;
+}
+.task-item.urgent .state button {
+  border: 1px solid rgb(238, 57, 57);
+  color: rgb(238, 57, 57);
+}
+.task-item.inprogress .state button {
+  border: 1px solid rgb(64, 134, 85);
+  color: rgb(64, 134, 85);
+}
+.task-item.upcoming .state button {
+  border: 1px solid rgb(241, 124, 69);
+  color: rgb(241, 124, 69);
+}
+.task-item.completed .state button {
+  border: 1px solid rgb(11, 223, 170);
+  color: rgb(11, 223, 170);
+}
+// urgent  inprogress  upcoming
+// controls
+
+.task-item .task-controls-box {
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(2px);
+  transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+}
+.task-item:hover .task-controls-box {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.4s;
+  transform: translateY(0);
+}
+
+.task-controls-box .task-control-button {
+  display: flex;
+  background: #f5f7f8;
+  padding: 7px 10px;
+
+  i.material-icons {
+    color: #555;
+    font-size: 20px;
+  }
+  &:hover {
+    i.material-icons {
+      color: #333;
+    }
+    background: #eee;
+  }
+  &:active {
+    background: #e5e7e8;
+  }
+  &:first-of-type {
+    border-top-left-radius: 7px;
+  }
+  &:last-of-type {
+    border-top-right-radius: 7px;
+  }
+}
+
+.task-controls-box .task-control-button.is-danger:active {
+  background: rgb(155, 27, 27);
+}

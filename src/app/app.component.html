@@ -1,0 +1,25 @@
+<!-- <router-outlet></router-outlet> -->
+<!-- navbar -->
+<nav class="navbar"></nav>
+
+<!-- sidebar -->
+<div class="sidebar">
+  <span class="title"> TASKS </span>
+  <!-- <div (click)="TasksService.showList = true" routerLink="/" class="button {{ TasksService.showList ? 'active' : '' }}"> -->
+  <div routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="button" (click)="RemoveItemToEdit()">
+    <i class="material-icons">checklist</i>
+    <p>Task List</p>
+  </div>
+  <!-- <div (click)="TasksService.showList = false" routerLink="/add" routerLinkActive='active' class="button {{ TasksService.showList ? '' : 'active' }}"> -->
+  <div routerLink="{{ TasksService.itemToEdit ? '/edit' : '/add' }}" routerLinkActive="active" class="button">
+    <!-- <div routerLink="/add" routerLinkActive="active" class="button"> -->
+    <i class="material-icons">add_task</i>
+    <p>{{ TasksService.itemToEdit ? "Edit" : "Add" }} Task</p>
+  </div>
+</div>
+
+<!-- container -->
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+<!-- routerLink= "/" -->
